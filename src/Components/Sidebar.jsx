@@ -23,15 +23,15 @@ function Sidebar() {
 
   return (
     <div className={`
-      ${isOpen ? "w-64" : "w-16 md:w-20"} 
-      ${isMobile && !isOpen ? "w-0 p-0" : ""}
+      ${isOpen ? "w-56" : "w-16 md:w-20"} 
+      ${isMobile && !isOpen ? "w-16" : ""}  /* This applies a minimum width of 4rem (16) on mobile when closed */
       flex 
       bg-gray-800 
       h-screen 
       p-3 md:p-5 
       pt-6 md:pt-8 
       duration-300 
-      relative
+      fixed
       z-50
     `}>
       <button
@@ -53,13 +53,13 @@ function Sidebar() {
       >
         {isOpen ? "<" : ">"}
       </button>
-
+    
       <div className="flex flex-col justify-between h-full">
         {/* Logo or Title */}
         <div className="text-white text-lg md:text-2xl font-semibold whitespace-nowrap">
           {isOpen ? "Split Wise" : "S"}
         </div>
-
+    
         {/* Navigation Menu */}
         <ul className="mt-[-10%] space-y-1 md:space-y-2">
           <li className="flex items-center gap-x-2 md:gap-x-4 p-1.5 md:p-2 text-gray-300 hover:bg-gray-700 cursor-pointer rounded-md">
@@ -83,7 +83,7 @@ function Sidebar() {
             {isOpen && <Link to="/profile" className="text-sm md:text-base whitespace-nowrap">Account</Link>}
           </li>
         </ul>
-
+    
         {/* Footer */}
         {isOpen && (
           <div className="text-gray-400 text-xs text-center">
@@ -91,6 +91,7 @@ function Sidebar() {
         )}
       </div>
     </div>
+    
   );
 }
 

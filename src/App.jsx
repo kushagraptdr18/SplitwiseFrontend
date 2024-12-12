@@ -21,6 +21,7 @@ function App() {
         <Route path="/allgroups" element={<AllGroups />} />
         <Route path="/friends" element={<Friends />} />
         <Route path="/activity" element={<DailyExpensesGraph />} />
+        <Route path='/createexpense' element={<CreateExpense/>}></Route>
         <Route path="/profile" element={<Profile />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />

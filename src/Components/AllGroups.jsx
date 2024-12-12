@@ -26,23 +26,27 @@ function AllGroups() {
   }, []);
 
   return (
-    <div className='w-full flex flex-col md:flex-row items-center justify-center min-h-screen overflow-y-auto overflow-x-hidden bg-black'>
+    <div className='w-full flex md:flex-row items-start justify-start min-h-screen overflow-y-auto overflow-x-hidden bg-black'>
+    {/* Sidebar: Fixed on the left */}
+    <div className="w-52 md:w-64">
       <Sidebar />
-      <div className='w-full h-full px-4 md:px-8'>
-        <h1 className='text-white text-2xl md:text-4xl mt-8 font-bold text-center mb-4'>All Groups</h1>
-        {loading ? (
-          <p className='text-white text-center'>Loading...</p>
-        ) : error ? (
-          <p className='text-red-500 text-center'>{error}</p>
-        ) : (
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 '>
-              
-            <GroupCard groups={groups} />  {/* Make sure GroupCard is properly receiving 'groups' */}
-          
-          </div>
-        )}
-      </div>
     </div>
+  
+    {/* Main content: Cards on the right */}
+    <div className="flex-1 px-4 md:px-8">
+      <h1 className='text-white text-2xl md:text-4xl mt-8 font-bold text-center mb-4'>All Groups</h1>
+      {loading ? (
+        <p className='text-white text-center'>Loading...</p>
+      ) : error ? (
+        <p className='text-red-500 text-center'>{error}</p>
+      ) : (
+        <div className='flex flex-wrap gap-5'>
+          <GroupCard groups={groups} />  {/* Make sure GroupCard is properly receiving 'groups' */}
+        </div>
+      )}
+    </div>
+  </div>
+  
   );
 }
 
