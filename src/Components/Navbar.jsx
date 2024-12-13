@@ -36,7 +36,7 @@ const Navbar = () => {
         withCredentials: true,
       });
       setUser(null); // Clear user data
-      navigate("/login"); // Redirect to login page
+      navigate("/"); // Redirect to login page
     } catch (error) {
       console.error("Logout failed:", error);
     }
