@@ -35,6 +35,9 @@ const Navbar = () => {
       await axios.get("http://localhost:3000/logout", {
         withCredentials: true,
       });
+      localStorage.setItem('token',"");
+      localStorage.setItem('authToken',"");
+
       setUser(null); // Clear user data
       navigate("/"); // Redirect to login page
     } catch (error) {

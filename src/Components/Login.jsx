@@ -19,6 +19,8 @@ function Login() {
         { withCredentials: true } // To include cookies
       );
 
+      localStorage.setItem('token', response.data.token);
+
       if (response.status === 200) {
         navigate("/"); // Redirect to the homepage or dashboard on successful login
       }
