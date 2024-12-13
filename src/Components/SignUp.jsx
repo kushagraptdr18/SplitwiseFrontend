@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import AxiosInstance from "./utils/AxiosInstance";
 
 function SignUp() {
   const [name, setName] = useState("");
@@ -17,7 +18,7 @@ function SignUp() {
     setSuccess(null); // Reset success state
 
     try {
-      const response = await axios.post("http://localhost:3000/register", {
+      const response = await AxiosInstance.post("/register", {
         name,
         email,
         password,

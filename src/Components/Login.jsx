@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import AxiosInstance from "./utils/AxiosInstance";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -13,13 +14,14 @@ function Login() {
     setError(null); // Reset error state
 
     try {
-      const response = await axios.post(
-        "http://localhost:3000/login",
+      const response = await AxiosInstance.post(
+        "/login",
         { email, password },
         { withCredentials: true } // To include cookies
       );
-
-      localStorage.setItem('token', response.data.token);
+      console.log(response.data);
+      
+    if(response.data.token) localStorage.setItem('token', response.data.token);
 
       if (response.status === 200) {
         navigate("/"); // Redirect to the homepage or dashboard on successful login

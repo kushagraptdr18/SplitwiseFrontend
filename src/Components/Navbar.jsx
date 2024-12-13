@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import AxiosInstance from "./utils/AxiosInstance";
 
 const Navbar = () => {
   const [user, setUser] = useState(null); // State to store user info
@@ -10,11 +11,12 @@ const Navbar = () => {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/userDetails", {
+        const response = await AxiosInstance.get("/userDetails", {
           withCredentials: true,
         });
 
-        console.log(response.data);
+        console.log(response);
+        
         
 
         if (response.data !== "not logged in") {
@@ -32,12 +34,10 @@ const Navbar = () => {
   // Logout handler
   const handleLogout = async () => {
     try {
-      await axios.get("http://localhost:3000/logout", {
+      await axios.get("https://splitwisebackend-1.onrender.com/logout", {
         withCredentials: true,
       });
       localStorage.setItem('token',"");
-      localStorage.setItem('authToken',"");
-
       setUser(null); // Clear user data
       navigate("/"); // Redirect to login page
     } catch (error) {

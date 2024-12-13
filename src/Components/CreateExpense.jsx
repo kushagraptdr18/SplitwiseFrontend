@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Sidebar from './Sidebar';
+import AxiosInstance from './utils/AxiosInstance';
 
 const CreateExpense = () => {
   const [description, setDescription] = useState('');
@@ -16,8 +17,8 @@ const CreateExpense = () => {
   useEffect(() => {
     const fetchGroupMembers = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3000/group/groupMembers?groupId=${groupId}`,
+        const response = await AxiosInstance.get(
+          `/group/groupMembers?groupId=${groupId}`,
           { withCredentials: true }
         );
         setGroupMembers(response.data.members);
@@ -51,7 +52,7 @@ const CreateExpense = () => {
         participants: selectedParticipants,
       };
 
-      await axios.post("http://localhost:3000/expense/create", expenseData, {
+      await AxiosInstance.post("/expense/create", expenseData, {
         withCredentials: true,
       });
       navigate(`/group/${groupId}`); // Navigate to group detail component

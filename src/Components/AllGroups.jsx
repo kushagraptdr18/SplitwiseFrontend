@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Sidebar from './Sidebar';
 import GroupCard from './GroupCard';
+import AxiosInstance from './utils/AxiosInstance';
 
 function AllGroups() {
   const [groups, setGroups] = useState([]);
@@ -12,7 +13,7 @@ function AllGroups() {
   useEffect(() => {
     const fetchGroups = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/group/viewAllGroups', { withCredentials: true });
+        const response = await AxiosInstance.get('/group/viewAllGroups', { withCredentials: true });
         console.log(response.data.groups);  
         setGroups(response.data.groups);
         setLoading(false);

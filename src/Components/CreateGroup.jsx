@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
+import AxiosInstance from './utils/AxiosInstance';
 
 const CreateGroup = () => {
   const [friends, setFriends] = useState([]);
@@ -13,7 +14,7 @@ const CreateGroup = () => {
   useEffect(() => {
     const fetchFriends = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/allfriends', { withCredentials: true });
+        const response = await AxiosInstance.get('/allfriends', { withCredentials: true });
         setFriends(response.data); // Assuming the response data is an array of friends
       } catch (error) {
         console.error('Error fetching friends:', error);
@@ -48,7 +49,7 @@ const CreateGroup = () => {
     };
 
     try {
-      await axios.post('http://localhost:3000/group/create', groupData, { withCredentials: true });
+      await AxiosInstance.post('/group/create', groupData, { withCredentials: true });
       navigate("/"); // Redirect after group creation
     } catch (error) {
       console.error('Error creating group:', error);

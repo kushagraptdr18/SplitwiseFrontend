@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import axios from 'axios';
+import AxiosInstance from './utils/AxiosInstance';
 
 function GroupDetail() {
   const { groupName } = useParams();
@@ -16,8 +17,8 @@ function GroupDetail() {
     if (groupName) {
       const fetchGroupDetails = async () => {
         try {
-          const response = await axios.get(
-            `http://localhost:3000/group/viewGroup?groupId=${groupName}`,
+          const response = await AxiosInstance.get(
+            `/group/viewGroup?groupId=${groupName}`,
             { withCredentials: true }
           );
           setGroup(response.data.group);
@@ -35,8 +36,8 @@ function GroupDetail() {
     if (groupName) {
       const fetchExpenses = async () => {
         try {
-          const response = await axios.get(
-            `http://localhost:3000/expense/view?groupId=${groupName}`,
+          const response = await AxiosInstance.get(
+            `/expense/view?groupId=${groupName}`,
             { withCredentials: true }
           );
           setExpenses(response.data.expenses);

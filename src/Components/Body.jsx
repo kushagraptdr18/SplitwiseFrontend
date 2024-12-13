@@ -4,8 +4,10 @@ import Button from './Button';
 import GroupCard from './GroupCard';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import AxiosInstance from './utils/AxiosInstance';
 
-function Body() {
+function Body({flag}) {
+  
   const [groups, setGroups] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -14,7 +16,7 @@ function Body() {
     // Fetch group data from the API
     const fetchGroups = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/group/viewAllGroups', { withCredentials: true });
+        const response = await AxiosInstance.get('/group/viewAllGroups', { withCredentials: true });
         console.log(response.data.groups[0]); // Log the full response for debugging
 
         if (response.status === 200) {
