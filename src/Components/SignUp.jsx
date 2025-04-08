@@ -19,7 +19,7 @@ function SignUp() {
 
     try {
       console.log("Sending data to /auth/register", { name, email, password, contact: phoneNumber });
-      const response = await AxiosInstance.post("/auth/register", {
+      const response = await AxiosInstance.post("auth/register", {
         name,
         email,
         password,
