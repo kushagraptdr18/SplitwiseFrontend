@@ -18,6 +18,7 @@ function SignUp() {
     setSuccess(null); // Reset success state
 
     try {
+      console.log("Sending data to /auth/register", { name, email, password, contact: phoneNumber });
       const response = await AxiosInstance.post("/auth/register", {
         name,
         email,
