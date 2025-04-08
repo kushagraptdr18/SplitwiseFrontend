@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import AxiosInstance from "./utils/axios";
 
 
 function SignUp() {
@@ -19,7 +20,7 @@ function SignUp() {
 
     try {
     
-      const response = await axios.post("https://splitwisebackend.onrender.com/auth/register", {
+      const response = await AxiosInstance.post("/auth/register", {
         name,
         email,
         password,
