@@ -4,7 +4,7 @@ import Button from './Button';
 import GroupCard from './GroupCard';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import AxiosInstance from './utils/AxiosInstance';
+import AxiosInstance from './utils/axios';
 
 function Body({flag}) {
   

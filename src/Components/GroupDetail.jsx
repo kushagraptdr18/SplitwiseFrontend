@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import axios from 'axios';
-import AxiosInstance from './utils/AxiosInstance';
+import AxiosInstance from './utils/axios';
 
 function GroupDetail() {
   const { groupName } = useParams();

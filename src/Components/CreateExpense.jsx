@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Sidebar from './Sidebar';
-import AxiosInstance from './utils/AxiosInstance';
+import AxiosInstance from './utils/axios';
 
 const CreateExpense = () => {
   const [description, setDescription] = useState('');

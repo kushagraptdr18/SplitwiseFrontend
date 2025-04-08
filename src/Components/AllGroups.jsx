@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Sidebar from './Sidebar';
 import GroupCard from './GroupCard';
-import AxiosInstance from './utils/AxiosInstance';
+import AxiosInstance from './utils/axios';
 
 function AllGroups() {
   const [groups, setGroups] = useState([]);

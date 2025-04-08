@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
-import AxiosInstance from './utils/AxiosInstance';
+import AxiosInstance from './utils/axios';
 
 const CreateGroup = () => {
   const [friends, setFriends] = useState([]);
