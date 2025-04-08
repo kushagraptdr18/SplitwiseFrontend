@@ -18,7 +18,7 @@ function SignUp() {
     setSuccess(null); // Reset success state
 
     try {
-      const response = await AxiosInstance.post("/register", {
+      const response = await AxiosInstance.post("/auth/register", {
         name,
         email,
         password,
