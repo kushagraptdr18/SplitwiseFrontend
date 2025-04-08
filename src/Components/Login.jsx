@@ -15,7 +15,7 @@ function Login() {
 
     try {
       const response = await AxiosInstance.post(
-        "/auth/login",
+        "/login",
         { email, password },
         { withCredentials: true } // To include cookies
       );

@@ -20,7 +20,7 @@ function SignUp() {
 
     try {
     
-      const response = await AxiosInstance.post("/auth/register", {
+      const response = await AxiosInstance.post("/register", {
         name,
         email,
         password,
