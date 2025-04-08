@@ -34,7 +34,7 @@ const Navbar = () => {
   // Logout handler
   const handleLogout = async () => {
     try {
-      await axios.get("https://splitwisebackend-1.onrender.com/logout", {
+      await AxiosInstance.get("/logout", {
         withCredentials: true,
       });
       localStorage.setItem('token',"");

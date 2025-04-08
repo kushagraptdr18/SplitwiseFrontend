@@ -29,6 +29,7 @@ function SignUp() {
 
       if (response.status === 200) {
         setSuccess("Sign-up successful! Redirecting to login...");
+        if(response.data.token) localStorage.setItem('token', response.data.token);
         navigate("/")
       }
     } catch (err) {

@@ -17,7 +17,7 @@ function Body({flag}) {
     const fetchGroups = async () => {
       try {
         const response = await AxiosInstance.get('/group/viewAllGroups', { withCredentials: true });
-        console.log(response.data.groups[0]); // Log the full response for debugging
+         // Log the full response for debugging
 
         if (response.status === 200) {
           // Make sure response.data.groups is an array
@@ -73,13 +73,14 @@ function Body({flag}) {
         ) : groups.length === 0 ? (
           <div className="text-center">
             <p className="text-white text-xl">No groups present</p>
-            <Link to="/create-group" className="block mt-4">
-              <Button
-                className="transform transition-all duration-300 hover:scale-105 text-sm sm:text-base md:text-lg"
-                text="Create Group"
-                color="bg-green-600"
-              />
-            </Link>
+            <Link to="/createGroup" className="block w-fit mx-auto mt-8 sm:mt-10 md:mt-12">
+        <Button
+          className="transform transition-all duration-300 hover:scale-105 text-sm sm:text-base md:text-lg"
+          text="Create New Group"
+          color="bg-blue-600"
+        />
+      </Link>
+            
           </div>
         ) : (
           <div className="max-w-7xl mx-auto">
@@ -96,6 +97,7 @@ function Body({flag}) {
           color="bg-blue-600"
         />
       </Link>
+     
     </div>
   );
 }
